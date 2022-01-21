@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 class Program
@@ -7,10 +7,25 @@ class Program
     {
         string key = "test";
         string message = File.ReadAllText("test.txt");
-        string encrypted = null;
-        string decrypted = null;
+        string encrypted = encrypt(message, key);
+        string decrypted = decrypt(encrypted, key);
 
-        for(int i = 0; i < message.Length; i++)
+        Console.WriteLine("Verschlüsselt:");
+        Console.WriteLine(encrypted);
+
+        Console.WriteLine("");
+
+        Console.WriteLine("Entschlüsselt:");
+        Console.WriteLine(decrypted);
+
+        Console.ReadLine();
+    }
+
+    private static string encrypt(string message, string key)
+    {
+        string encrypted = null;
+
+        for (int i = 0; i < message.Length; i++)
         {
             int j = i;
 
@@ -20,7 +35,14 @@ class Program
             encrypted += (char)((int)message[i] + (int)key[j]);
         }
 
-        for (int i = 0; i < message.Length; i++)
+        return encrypted;
+    }
+
+    private static string decrypt(string encrypted, string key)
+    {
+        string decrypted = null;
+
+        for (int i = 0; i < encrypted.Length; i++)
         {
             int j = i;
 
@@ -30,8 +52,6 @@ class Program
             decrypted += (char)((int)encrypted[i] - (int)key[j]);
         }
 
-        Console.WriteLine(encrypted);
-        Console.WriteLine(decrypted);
-        Console.ReadLine();
+        return decrypted;
     }
 }
