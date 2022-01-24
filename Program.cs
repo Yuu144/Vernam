@@ -25,12 +25,12 @@ class Program
     {
         string encrypted = null;
 		
-		Console.WriteLine(key.Length);
+	Console.WriteLine(key.Length);
 
-		int j = 0;
+	int j = 0;
         for (int i = 0; i < message.Length; i++)
         {
-			j++;
+	    j++;
 
             if (j == key.Length)
                 j = 0;
@@ -45,10 +45,10 @@ class Program
     {
         string decrypted = null;
 
-		int j = 0;
+	int j = 0;
         for (int i = 0; i < encrypted.Length; i++)
         {
-			j++;
+	    j++;
 
             if (j == key.Length)
                 j = 0;
