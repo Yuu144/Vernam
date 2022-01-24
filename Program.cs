@@ -5,8 +5,8 @@ class Program
 {
     private static void Main()
     {
-        string key = "test";
-        string message = File.ReadAllText("test.txt");
+        string key = "asdf";
+        string message = "this is a test message";
         string encrypted = encrypt(message, key);
         string decrypted = decrypt(encrypted, key);
 
@@ -24,12 +24,15 @@ class Program
     private static string encrypt(string message, string key)
     {
         string encrypted = null;
+		
+		Console.WriteLine(key.Length);
 
+		int j = 0;
         for (int i = 0; i < message.Length; i++)
         {
-            int j = i;
+			j++;
 
-            if (j >= key.Length)
+            if (j == key.Length)
                 j = 0;
 
             encrypted += (char)((int)message[i] + (int)key[j]);
@@ -42,11 +45,12 @@ class Program
     {
         string decrypted = null;
 
+		int j = 0;
         for (int i = 0; i < encrypted.Length; i++)
         {
-            int j = i;
+			j++;
 
-            if (j >= key.Length)
+            if (j == key.Length)
                 j = 0;
 
             decrypted += (char)((int)encrypted[i] - (int)key[j]);
