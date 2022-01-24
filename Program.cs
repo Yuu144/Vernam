@@ -24,8 +24,6 @@ class Program
     private static string encrypt(string message, string key)
     {
         string encrypted = null;
-		
-	Console.WriteLine(key.Length);
 
 	int j = 0;
         for (int i = 0; i < message.Length; i++)
